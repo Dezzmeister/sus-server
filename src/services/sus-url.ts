@@ -2,10 +2,9 @@ import { config } from '../config';
 import { SusUrl } from '../entity/SusUrl';
 import { SusWord } from '../entity/SusWord';
 import { getEntityManager } from './database';
-import { base64Url } from './session';
 import crypto from 'crypto';
 
-const RAND_BYTES = 4;
+const RAND_BYTES = 3;
 
 const DOMAINS =
 	config.env === 'dev'
@@ -77,4 +76,8 @@ function pickRandomWords(numWords: number, words: string[]): string[] {
 
 function rand(max: number): number {
 	return Math.floor(Math.random() * max);
+}
+
+export function base64Url(base64Str: string): string {
+	return base64Str.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '!');
 }

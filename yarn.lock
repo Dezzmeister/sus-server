@@ -237,6 +237,11 @@
   dependencies:
     "@types/express" "*"
 
+"@types/express-handlebars@^3.1.0":
+  version "3.1.0"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/@types/express-handlebars/-/express-handlebars-3.1.0.tgz#b931e6b51fef4efb25ee120394a42c03cb7a0d23"
+  integrity sha1-uTHmtR/vTvsl7hIDlKQsA8t6DSM=
+
 "@types/express-serve-static-core@^4.17.18":
   version "4.17.24"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/@types/express-serve-static-core/-/express-serve-static-core-4.17.24.tgz#ea41f93bf7e0d59cd5a76665068ed6aab6815c07"
@@ -256,13 +261,6 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
-"@types/ioredis@4.27.4":
-  version "4.27.4"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/@types/ioredis/-/ioredis-4.27.4.tgz#2caf9d0222640c9d7ce278fca2f9892c1323f9c8"
-  integrity sha1-LK+dAiJkDJ184nj8ovmJLBMj+cg=
-  dependencies:
-    "@types/node" "*"
-
 "@types/json-schema@^7.0.7":
   version "7.0.9"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/@types/json-schema/-/json-schema-7.0.9.tgz#97edc9037ea0c38585320b28964dde3b39e4660d"
@@ -272,6 +270,13 @@
   version "0.0.29"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
+
+"@types/jsonwebtoken@^8.5.8":
+  version "8.5.8"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/@types/jsonwebtoken/-/jsonwebtoken-8.5.8.tgz#01b39711eb844777b7af1d1f2b4cf22fda1c0c44"
+  integrity sha1-AbOXEeuER3e3rx0fK0zyL9ocDEQ=
+  dependencies:
+    "@types/node" "*"
 
 "@types/lodash@*":
   version "4.14.173"
@@ -687,6 +692,11 @@ bson@^4.5.2:
   dependencies:
     buffer "^5.6.0"
 
+buffer-equal-constant-time@1.0.1:
+  version "1.0.1"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz#f8e71132f7ffe6e01a5c9697a4c6f3e48d5cc819"
+  integrity sha1-+OcRMvf/5uAaXJaXpMbz5I1cyBk=
+
 buffer-from@^1.0.0:
   version "1.1.2"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/buffer-from/-/buffer-from-1.1.2.tgz#2b146a6fd72e80b4f55d255f35ed59a3a9a41bd5"
@@ -811,11 +821,6 @@ clone@2.1.2:
   version "2.1.2"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
   integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
-
-cluster-key-slot@^1.1.0:
-  version "1.1.0"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/cluster-key-slot/-/cluster-key-slot-1.1.0.tgz#30474b2a981fb12172695833052bc0d01336d10d"
-  integrity sha1-MEdLKpgfsSFyaVgzBSvA0BM20Q0=
 
 code-block-writer@^10.1.1:
   version "10.1.1"
@@ -1015,11 +1020,6 @@ define-property@^2.0.2:
     is-descriptor "^1.0.2"
     isobject "^3.0.1"
 
-denque@^1.1.0:
-  version "1.5.1"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/denque/-/denque-1.5.1.tgz#07f670e29c9a78f8faecb2566a1e2c11929c5cbf"
-  integrity sha1-B/Zw4pyaePj67LJWah4sEZKcXL8=
-
 denque@^2.0.1:
   version "2.0.1"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/denque/-/denque-2.0.1.tgz#bcef4c1b80dc32efe97515744f21a4229ab8934a"
@@ -1070,6 +1070,13 @@ dynamic-dedupe@^0.3.0:
   integrity sha1-BuRMIj9eTpTXjvnbI6ZRXOL5YqE=
   dependencies:
     xtend "^4.0.0"
+
+ecdsa-sig-formatter@1.0.11:
+  version "1.0.11"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz#ae0f0fa2d85045ef14a817daa3ce9acd0489e5bf"
+  integrity sha1-rg8PothQRe8UqBfao86azQSJ5b8=
+  dependencies:
+    safe-buffer "^5.0.1"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -1274,6 +1281,15 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
+express-handlebars@5.2.0:
+  version "5.2.0"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/express-handlebars/-/express-handlebars-5.2.0.tgz#23f30838bd7be78dfb954f074ee8381056091cc5"
+  integrity sha1-I/MIOL175437lU8HTug4EFYJHMU=
+  dependencies:
+    glob "^7.1.6"
+    graceful-fs "^4.2.4"
+    handlebars "^4.7.6"
+
 express@4.17.1:
   version "4.17.1"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
@@ -1386,20 +1402,6 @@ fecha@^4.2.0:
   version "4.2.1"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/fecha/-/fecha-4.2.1.tgz#0a83ad8f86ef62a091e22bb5a039cd03d23eecce"
   integrity sha1-CoOtj4bvYqCR4iu1oDnNA9I+7M4=
-
-fengari-interop@^0.1.2:
-  version "0.1.2"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/fengari-interop/-/fengari-interop-0.1.2.tgz#f7731dcdd2ff4449073fb7ac3c451a8841ce1e87"
-  integrity sha1-93MdzdL/REkHP7esPEUaiEHOHoc=
-
-fengari@^0.1.4:
-  version "0.1.4"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/fengari/-/fengari-0.1.4.tgz#72416693cd9e43bd7d809d7829ddc0578b78b0bb"
-  integrity sha1-ckFmk82eQ719gJ14Kd3AV4t4sLs=
-  dependencies:
-    readline-sync "^1.4.9"
-    sprintf-js "^1.1.1"
-    tmp "^0.0.33"
 
 figlet@^1.1.1:
   version "1.5.2"
@@ -1588,6 +1590,18 @@ glob@^7.1.3:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
+glob@^7.1.6:
+  version "7.2.3"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/glob/-/glob-7.2.3.tgz#b8df0fb802bbfa8e89bd1d938b4e16578ed44f2b"
+  integrity sha1-uN8PuAK7+o6JvR2Ti04WV47UTys=
+  dependencies:
+    fs.realpath "^1.0.0"
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "^3.1.1"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
+
 global-modules@^1.0.0:
   version "1.0.0"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/global-modules/-/global-modules-1.0.0.tgz#6d770f0eb523ac78164d72b5e71a8877265cc3ea"
@@ -1643,6 +1657,23 @@ graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   version "4.2.8"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/graceful-fs/-/graceful-fs-4.2.8.tgz#e412b8d33f5e006593cbd3cee6df9f2cebbe802a"
   integrity sha1-5BK40z9eAGWTy9PO5t+fLOu+gCo=
+
+graceful-fs@^4.2.4:
+  version "4.2.10"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/graceful-fs/-/graceful-fs-4.2.10.tgz#147d3a006da4ca3ce14728c7aefc287c367d7a6c"
+  integrity sha1-FH06AG2kyjzhRyjHrvwofDZ9emw=
+
+handlebars@^4.7.6:
+  version "4.7.7"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/handlebars/-/handlebars-4.7.7.tgz#9ce33416aad02dbd6c8fafa8240d5d98004945a1"
+  integrity sha1-nOM0FqrQLb1sj6+oJA1dmABJRaE=
+  dependencies:
+    minimist "^1.2.5"
+    neo-async "^2.6.0"
+    source-map "^0.6.1"
+    wordwrap "^1.0.0"
+  optionalDependencies:
+    uglify-js "^3.1.4"
 
 has-ansi@^2.0.0:
   version "2.0.0"
@@ -1790,33 +1821,6 @@ interpret@^2.2.0:
   version "2.2.0"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/interpret/-/interpret-2.2.0.tgz#1a78a0b5965c40a5416d007ad6f50ad27c417df9"
   integrity sha1-GnigtZZcQKVBbQB61vUK0nxBffk=
-
-ioredis-mock@5.6.0:
-  version "5.6.0"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/ioredis-mock/-/ioredis-mock-5.6.0.tgz#f60f9fbc3a53b50f567be9369e2b211ed52c0653"
-  integrity sha1-9g+fvDpTtQ9We+k2nishHtUsBlM=
-  dependencies:
-    fengari "^0.1.4"
-    fengari-interop "^0.1.2"
-    lodash "^4.17.21"
-    standard-as-callback "^2.1.0"
-
-ioredis@4.27.9:
-  version "4.27.9"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/ioredis/-/ioredis-4.27.9.tgz#c27bbade9724f0b8f84c279fb1d567be785ba33d"
-  integrity sha1-wnu63pck8Lj4TCefsdVnvnhboz0=
-  dependencies:
-    cluster-key-slot "^1.1.0"
-    debug "^4.3.1"
-    denque "^1.1.0"
-    lodash.defaults "^4.2.0"
-    lodash.flatten "^4.4.0"
-    lodash.isarguments "^3.1.0"
-    p-map "^2.1.0"
-    redis-commands "1.7.0"
-    redis-errors "^1.2.0"
-    redis-parser "^3.0.0"
-    standard-as-callback "^2.1.0"
 
 ipaddr.js@1.9.1:
   version "1.9.1"
@@ -2039,6 +2043,39 @@ jsonfile@^6.0.1:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+jsonwebtoken@^8.5.1:
+  version "8.5.1"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/jsonwebtoken/-/jsonwebtoken-8.5.1.tgz#00e71e0b8df54c2121a1f26137df2280673bcc0d"
+  integrity sha1-AOceC431TCEhofJhN98igGc7zA0=
+  dependencies:
+    jws "^3.2.2"
+    lodash.includes "^4.3.0"
+    lodash.isboolean "^3.0.3"
+    lodash.isinteger "^4.0.4"
+    lodash.isnumber "^3.0.3"
+    lodash.isplainobject "^4.0.6"
+    lodash.isstring "^4.0.1"
+    lodash.once "^4.0.0"
+    ms "^2.1.1"
+    semver "^5.6.0"
+
+jwa@^1.4.1:
+  version "1.4.1"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/jwa/-/jwa-1.4.1.tgz#743c32985cb9e98655530d53641b66c8645b039a"
+  integrity sha1-dDwymFy56YZVUw1TZBtmyGRbA5o=
+  dependencies:
+    buffer-equal-constant-time "1.0.1"
+    ecdsa-sig-formatter "1.0.11"
+    safe-buffer "^5.0.1"
+
+jws@^3.2.2:
+  version "3.2.2"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/jws/-/jws-3.2.2.tgz#001099f3639468c9414000e99995fa52fb478304"
+  integrity sha1-ABCZ82OUaMlBQADpmZX6UvtHgwQ=
+  dependencies:
+    jwa "^1.4.1"
+    safe-buffer "^5.0.1"
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -2120,32 +2157,52 @@ lodash.clonedeep@^4.5.0:
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
 
-lodash.defaults@^4.2.0:
-  version "4.2.0"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
-  integrity sha1-0JF4cW/+pN3p5ft7N/bwgCJ0WAw=
+lodash.includes@^4.3.0:
+  version "4.3.0"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.includes/-/lodash.includes-4.3.0.tgz#60bb98a87cb923c68ca1e51325483314849f553f"
+  integrity sha1-YLuYqHy5I8aMoeUTJUgzFISfVT8=
 
-lodash.flatten@^4.4.0:
-  version "4.4.0"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.flatten/-/lodash.flatten-4.4.0.tgz#f31c22225a9632d2bbf8e4addbef240aa765a61f"
-  integrity sha1-8xwiIlqWMtK7+OSt2+8kCqdlph8=
+lodash.isboolean@^3.0.3:
+  version "3.0.3"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.isboolean/-/lodash.isboolean-3.0.3.tgz#6c2e171db2a257cd96802fd43b01b20d5f5870f6"
+  integrity sha1-bC4XHbKiV82WgC/UOwGyDV9YcPY=
 
-lodash.isarguments@^3.1.0:
-  version "3.1.0"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz#2f573d85c6a24289ff00663b491c1d338ff3458a"
-  integrity sha1-L1c9hcaiQon/AGY7SRwdM4/zRYo=
+lodash.isinteger@^4.0.4:
+  version "4.0.4"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.isinteger/-/lodash.isinteger-4.0.4.tgz#619c0af3d03f8b04c31f5882840b77b11cd68343"
+  integrity sha1-YZwK89A/iwTDH1iChAt3sRzWg0M=
+
+lodash.isnumber@^3.0.3:
+  version "3.0.3"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.isnumber/-/lodash.isnumber-3.0.3.tgz#3ce76810c5928d03352301ac287317f11c0b1ffc"
+  integrity sha1-POdoEMWSjQM1IwGsKHMX8RwLH/w=
+
+lodash.isplainobject@^4.0.6:
+  version "4.0.6"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
+  integrity sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=
+
+lodash.isstring@^4.0.1:
+  version "4.0.1"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
+  integrity sha1-1SfftUVuynzJu5XV2ur4i6VKVFE=
 
 lodash.merge@^4.6.2:
   version "4.6.2"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha1-VYqlO0O2YeGSWgr9+japoQhf5Xo=
 
+lodash.once@^4.0.0:
+  version "4.1.1"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
+  integrity sha1-DdOXEhPHxW34gJd9UEyI+0cal6w=
+
 lodash.truncate@^4.4.2:
   version "4.4.2"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash.truncate/-/lodash.truncate-4.4.2.tgz#5a350da0b1113b837ecfffd5812cbe58d6eae193"
   integrity sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=
 
-lodash@^4.17.20, lodash@^4.17.21:
+lodash@^4.17.20:
   version "4.17.21"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
@@ -2268,6 +2325,13 @@ minimatch@^3.0.4:
   dependencies:
     brace-expansion "^1.1.7"
 
+minimatch@^3.1.1:
+  version "3.1.2"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/minimatch/-/minimatch-3.1.2.tgz#19cd194bfd3e428f049a70817c038d89ab4be35b"
+  integrity sha1-Gc0ZS/0+Qo8EmnCBfAONiatL41s=
+  dependencies:
+    brace-expansion "^1.1.7"
+
 minimist@^1.2.0, minimist@^1.2.5:
   version "1.2.5"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
@@ -2351,6 +2415,11 @@ negotiator@0.6.2:
   version "0.6.2"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
   integrity sha1-/qz3zPUlp3rpY0Q2pkiD/+yjRvs=
+
+neo-async@^2.6.0:
+  version "2.6.2"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
+  integrity sha1-tKr7k+OustgXTKU88WOrfXMIMF8=
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
@@ -2436,11 +2505,6 @@ optionator@^0.9.1:
     type-check "^0.4.0"
     word-wrap "^1.2.3"
 
-os-tmpdir@~1.0.2:
-  version "1.0.2"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
-  integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
-
 p-limit@^2.2.0:
   version "2.3.0"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/p-limit/-/p-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"
@@ -2454,11 +2518,6 @@ p-locate@^4.1.0:
   integrity sha1-o0KLtwiLOmApL2aRkni3wpetTwc=
   dependencies:
     p-limit "^2.2.0"
-
-p-map@^2.1.0:
-  version "2.1.0"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/p-map/-/p-map-2.1.0.tgz#310928feef9c9ecc65b68b17693018a665cea175"
-  integrity sha1-MQko/u+cnsxltosXaTAYpmXOoXU=
 
 p-try@^2.0.0:
   version "2.2.0"
@@ -2741,11 +2800,6 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
-readline-sync@^1.4.9:
-  version "1.4.10"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/readline-sync/-/readline-sync-1.4.10.tgz#41df7fbb4b6312d673011594145705bf56d8873b"
-  integrity sha1-Qd9/u0tjEtZzARWUFFcFv1bYhzs=
-
 rechoir@^0.6.2:
   version "0.6.2"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/rechoir/-/rechoir-0.6.2.tgz#85204b54dba82d5742e28c96756ef43af50e3384"
@@ -2757,18 +2811,6 @@ redis-commands@1.7.0:
   version "1.7.0"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/redis-commands/-/redis-commands-1.7.0.tgz#15a6fea2d58281e27b1cd1acfb4b293e278c3a89"
   integrity sha1-Fab+otWCgeJ7HNGs+0spPieMOok=
-
-redis-errors@^1.0.0, redis-errors@^1.2.0:
-  version "1.2.0"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/redis-errors/-/redis-errors-1.2.0.tgz#eb62d2adb15e4eaf4610c04afe1529384250abad"
-  integrity sha1-62LSrbFeTq9GEMBK/hUpOEJQq60=
-
-redis-parser@^3.0.0:
-  version "3.0.0"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/redis-parser/-/redis-parser-3.0.0.tgz#b66d828cdcafe6b4b8a428a7def4c6bcac31c8b4"
-  integrity sha1-tm2CjNyv5rS4pCin3vTGvKwxyLQ=
-  dependencies:
-    redis-errors "^1.0.0"
 
 reflect-metadata@0.1.13:
   version "0.1.13"
@@ -2875,7 +2917,7 @@ safe-buffer@5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
   integrity sha1-mR7GnSluAxN0fVm9/St0XDX4go0=
 
-safe-buffer@~5.2.0:
+safe-buffer@^5.0.1, safe-buffer@~5.2.0:
   version "5.2.1"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
   integrity sha1-Hq+fqb2x/dTsdfWPnNtOa3gn7sY=
@@ -2898,6 +2940,11 @@ saslprep@^1.0.3:
   integrity sha1-TAL5RrVs9UKX40e6EJPnrKxM8iY=
   dependencies:
     sparse-bitfield "^3.0.3"
+
+semver@^5.6.0:
+  version "5.7.1"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
+  integrity sha1-qVT5Ma66UI0we78Gnv8MAclhFvc=
 
 semver@^7.2.1, semver@^7.3.5:
   version "7.3.5"
@@ -3047,7 +3094,7 @@ source-map@^0.5.6:
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
-source-map@^0.6.0:
+source-map@^0.6.0, source-map@^0.6.1:
   version "0.6.1"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
@@ -3073,11 +3120,6 @@ split2@^3.1.1:
   dependencies:
     readable-stream "^3.0.0"
 
-sprintf-js@^1.1.1:
-  version "1.1.2"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/sprintf-js/-/sprintf-js-1.1.2.tgz#da1765262bf8c0f571749f2ad6c26300207ae673"
-  integrity sha1-2hdlJiv4wPVxdJ8q1sJjACB65nM=
-
 sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
@@ -3092,11 +3134,6 @@ stack-trace@0.0.x:
   version "0.0.10"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/stack-trace/-/stack-trace-0.0.10.tgz#547c70b347e8d32b4e108ea1a2a159e5fdde19c0"
   integrity sha1-VHxws0fo0ytOEI6hoqFZ5f3eGcA=
-
-standard-as-callback@^2.1.0:
-  version "2.1.0"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/standard-as-callback/-/standard-as-callback-2.1.0.tgz#8953fc05359868a77b5b9739a665c5977bb7df45"
-  integrity sha1-iVP8BTWYaKd7W5c5pmXFl3u330U=
 
 static-extend@^0.1.1:
   version "0.1.2"
@@ -3213,13 +3250,6 @@ tildify@2.0.0:
   version "2.0.0"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/tildify/-/tildify-2.0.0.tgz#f205f3674d677ce698b7067a99e949ce03b4754a"
   integrity sha1-8gXzZ01nfOaYtwZ6melJzgO0dUo=
-
-tmp@^0.0.33:
-  version "0.0.33"
-  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
-  integrity sha1-bTQzWIl2jSGyvNoKonfO07G/rfk=
-  dependencies:
-    os-tmpdir "~1.0.2"
 
 to-object-path@^0.3.0:
   version "0.3.0"
@@ -3386,6 +3416,11 @@ typescript@4.4.3:
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/typescript/-/typescript-4.4.3.tgz#bdc5407caa2b109efd4f82fe130656f977a29324"
   integrity sha1-vcVAfKorEJ79T4L+EwZW+XeikyQ=
 
+uglify-js@^3.1.4:
+  version "3.16.0"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/uglify-js/-/uglify-js-3.16.0.tgz#b778ba0831ca102c1d8ecbdec2d2bdfcc7353190"
+  integrity sha1-t3i6CDHKECwdjsvewtK9/Mc1MZA=
+
 umzug@2.3.0:
   version "2.3.0"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/umzug/-/umzug-2.3.0.tgz#0ef42b62df54e216b05dcaf627830a6a8b84a184"
@@ -3529,6 +3564,11 @@ word-wrap@^1.2.3:
   version "1.2.3"
   resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
   integrity sha1-YQY29rH3A4kb00dxzLF/uTtHB5w=
+
+wordwrap@^1.0.0:
+  version "1.0.0"
+  resolved "https://artifactory6.grabcad.net:443/artifactory/api/npm/npm-repo/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
+  integrity sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
 
 wrap-ansi@^6.2.0:
   version "6.2.0"

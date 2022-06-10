@@ -1,0 +1,23 @@
+<html lang='en'>
+	<head>
+		<meta charset='utf-8' />
+		<title>{{title}}</title>
+		<link rel='shortcut icon' href='/favicon.ico' />
+		<link rel='stylesheet' type='text/css' href='/views.css' />
+		<script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js' id='jquery'></script>
+	</head>
+
+	{{#if noOverflow}}
+		<body class='no-overflow'>
+			{{{body}}}
+		</body>
+	{{else if noOverflowX}}
+		<body style='overflow-x: hidden;'>
+			{{{body}}}
+		</body>
+	{{else}}
+		<body>
+			{{{body}}}
+		</body>
+	{{/if}}
+</html>

@@ -14,7 +14,7 @@
 		"@typescript-eslint/no-unused-vars": 1,
 		"default-case": 1,
 		"default-case-last": 1,
-		"consistent-return": 2,
+		"consistent-return": 0,
 		"eqeqeq": 2,
 		"no-else-return": 2,
 		"no-fallthrough": 1,

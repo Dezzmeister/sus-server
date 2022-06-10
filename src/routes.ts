@@ -1,7 +1,18 @@
 export const routes = {
+	home: '/',
+	login: '/',
+	logout: '/logout',
 	susUrl: {
 		base: '/e',
 		full: '/e/:id',
+	},
+	client: {
+		word: {
+			list: '/word/list',
+			add: '/word/add',
+			delete: '/word/delete',
+			modify: '/word/modify',
+		},
 	},
 	api: {
 		url: {

@@ -1,35 +1,25 @@
 import { Request, Response, NextFunction } from 'express';
-import { User } from './entity/User';
 import { logger } from './logging';
-import { getUserBySession } from './services/users';
+import * as jwt from 'jsonwebtoken';
+import { config } from './config';
+import { User } from './client';
 
-export async function authMiddleware(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
-	let token = req.body?.token;
+export const jwtCookieKey = 'accessToken';
 
-	const authHeader = req.headers.authorization as string | undefined;
+export async function jwtMiddleware(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
+	const token = req.cookies[jwtCookieKey];
 
-	if (authHeader && authHeader.startsWith('Bearer ') && authHeader.length > 'Bearer '.length) {
-		token = authHeader.split(' ')[1];
-	}
+	jwt.verify(token, config.jwt.secret, (err: any, user: any) => {
+		if (err) {
+			const errorString = `User tried to access ${req.path} with no JWT: ${JSON.stringify(err)}`;
+			logger.error(errorString);
+			req.user = undefined;
+		} else {
+			req.user = user;
+		}
 
-	if (!token) {
-		// TODO: i18n
-		logger.error(`Unauthorized access of ${req.path}`);
-		res.status(401).send({ status: 'error', error: 'Not authorized' });
-		return;
-	}
-
-	const user = await getUserBySession(token);
-	if (!user) {
-		res.status(401).send({ status: 'error', error: 'Token expired, log in again' });
-		return;
-	}
-
-	req.user = user;
-	req.token = token;
-	logger.info(`User with email ${user.email} logged in`);
-
-	next();
+		next();
+	});
 }
 
 export interface AuthRequest extends Request {

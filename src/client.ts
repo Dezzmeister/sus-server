@@ -1,31 +1,39 @@
 /**
- * User permissions framework. Permissions are organized in a hierarchy;
- * so that a user with a permission higher up in the hierarchy (such as 'user.*')
- * has every permission starting with 'user.'.
+ * Methods and data structures from the obama69 codebase.
+ * TODO: There's a lot of duplication here; this could be put into a separate module.
  */
-import { User } from '../entity/User';
+import { config } from './config';
+import { NextFunction, Request, Response } from 'express';
+import crypto from 'crypto';
 
-export const permissions = {
+export type User = {
+	id: number;
+	username: string;
+	permissions: string[];
+};
+
+export type ClientRequest = Request & {
+	key?: string;
+	secret?: string;
+};
+
+export const PERMISSIONS = {
 	all: '*',
-	admin: {
-		all: '*',
-	},
-	user: {
-		all: 'user.*',
-		upload: 'user.upload',
-		comment: 'user.comment',
+	susServer: {
+		all: 'sus.*',
+		create: {
+			all: 'sus.create.*',
+			url: 'sus.create.url',
+		},
 	},
 };
 
-const permissionsFlatMap: string[] = buildPermissionsFlatMap(permissions);
+const permissionsFlatMap: string[] = buildPermissionsFlatMap(PERMISSIONS);
 
-type RootHierarchy = { [key: string]: unknown };
-type Hierarchy = { [key: string]: Hierarchy } | unknown;
-
-function buildPermissionsFlatMap(obj: Hierarchy): string[] {
+function buildPermissionsFlatMap(obj: Object): string[] {
 	let perms: string[] = [];
 
-	for (const val of Object.values(obj as RootHierarchy)) {
+	for (const val of Object.values(obj)) {
 		if (typeof val === 'string') {
 			perms.push(val);
 		} else {
@@ -36,8 +44,8 @@ function buildPermissionsFlatMap(obj: Hierarchy): string[] {
 	return perms;
 }
 
-function getStringSubPermission(obj: Hierarchy): string | undefined {
-	for (const val of Object.values(obj as RootHierarchy)) {
+function getStringSubPermission(obj: Object): string | undefined {
+	for (const val of Object.values(obj)) {
 		if (typeof val === 'string') {
 			return val;
 		}
@@ -47,12 +55,10 @@ function getStringSubPermission(obj: Hierarchy): string | undefined {
 			return subPerm;
 		}
 	}
-
-	return undefined;
 }
 
-export function hasAnyPermission(user: User, obj: Hierarchy): boolean {
-	if (user.permissions.includes(permissions.all)) {
+export function hasAnyPermission(user: User, obj: Object): boolean {
+	if (user.permissions.includes(PERMISSIONS.all)) {
 		return true;
 	}
 
@@ -66,7 +72,7 @@ export function hasAnyPermission(user: User, obj: Hierarchy): boolean {
 }
 
 export function hasPermission(user: User, permission: string): boolean {
-	if (user.permissions.includes(permissions.all)) {
+	if (user.permissions.includes(PERMISSIONS.all)) {
 		return true;
 	}
 
@@ -96,7 +102,7 @@ function hasAllSubPermissions(user: User, permission: string): boolean {
 	const rootNode = permission.substring(0, permission.lastIndexOf('.'));
 	const requiredPerms = permissionsFlatMap.filter((s) => s.startsWith(rootNode) && s !== permission);
 
-	for (const val of Object.values(permissions)) {
+	for (const val of Object.values(PERMISSIONS)) {
 		if (typeof val === 'string' && val.startsWith(rootNode) && val !== permission) {
 			requiredPerms.push();
 		}
@@ -109,4 +115,28 @@ function hasAllSubPermissions(user: User, permission: string): boolean {
 	}
 
 	return true;
+}
+
+export function clientMiddleware(req: Request, res: Response, next: NextFunction): void {
+	const { key, secret } = req.body;
+
+	if (!key || !secret) {
+		res.status(400).send({ error: 'missing key or secret' });
+		return;
+	}
+
+	if (key.length !== config.client.key.length || secret.length !== config.client.secret.length) {
+		res.status(401).send({ error: 'bad credentials' });
+		return;
+	}
+
+	if (
+		!crypto.timingSafeEqual(Buffer.from(key), Buffer.from(config.client.key)) ||
+		!crypto.timingSafeEqual(Buffer.from(secret), Buffer.from(config.client.secret))
+	) {
+		res.status(401).send({ error: 'bad credentials' });
+		return;
+	}
+
+	next();
 }

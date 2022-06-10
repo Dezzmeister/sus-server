@@ -1,0 +1,196 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100, 100i, 300, 300i, 400, 400i, 500, 500i, 700, 700i, 900, 900i&display=swap);
+
+body {
+	margin: 0;
+	height: 100vh;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+.header {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 2em;
+	animation: bruh-momento 60s ease infinite;
+	-webkit-animation: bruh-momento 60s ease infinite;
+	-moz-animation: bruh-momento 60s ease infinite;
+}
+
+.header > h1 {
+	color: white;
+	background-color: #444;
+	padding: 40px;
+	border-radius: 50px;
+	box-shadow: 10px 5px 20px #111;
+}
+
+.dark-page {
+	background-color: #555;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.form-container {
+	display: flex;
+	padding: 10px;
+	margin: 0;
+	flex-grow: 1;
+}
+
+.sus-form {
+	width: 100%;
+}
+
+.sus-form > input {
+	margin: 100px 10px 0px 10px;
+	padding: 35px 10px 35px 10px;
+	width: 100%;
+	height: 3rem;
+	font-size: 3rem;
+	border-radius: 20px;
+}
+
+.sus-form > button {
+	margin: 100px 10px 100px 10px;
+	padding: 20px 10px 20px 10px;
+	font-size: 2rem;
+	border-radius: 20px;
+	min-width: 200px;
+	box-shadow: 10px 5px 20px #222;
+	background-color: #bbb;
+	color: #000;
+	border: 0;
+}
+
+.sus-form > button[disabled] {
+	color: #666;
+}
+
+.sus-form > button:not([disabled]):hover {
+	cursor: pointer;
+	font-size: 2.1rem;
+	min-width: 220px;
+}
+
+.sus-form > a {
+	font-size: 3rem;
+	margin-top: 50px;
+}
+
+.sus-form > h4.error-report {
+	color: red;
+	font-size: 2rem;
+	margin-top: 50px;
+}
+
+.sus-form > input[type='range'] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 100%;
+	background: transparent;
+	padding-top: 20px;
+	margin-top: 0;
+}
+
+.sus-form > label {
+	margin: 100px 10px 0 10px;
+	font-size: 2.4rem;
+}
+
+.sus-form > input[type='range']:focus {
+	outline: 0;
+}
+
+.sus-form > input[type='range']::-moz-focus-outer {
+	border: 0;
+}
+
+.sus-form > input[type='range']::-webkit-slider-thumb,
+.sus-form > input[type='range']::-moz-range-thumb {
+	box-shadow: 2px 2px 1px #1b1b1b;
+	border: 0;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	background: white;
+	cursor: pointer;
+}
+
+.sus-form > input[type='range']::-webkit-slider-runnable-track,
+.sus-form > input[type='range']::-moz-range-track {
+	width: 100%;
+	height: 5px;
+	cursor: pointer;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0) 0px 0px 1px rgba(13, 13, 13, 0);
+	background: indigo;
+	border-radius: 20px;
+	border: 0;
+}
+
+.logout-btn {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	padding: 10px 5px 10px 5px;
+	font-size: 1.4rem;
+	border-radius: 10px;
+	min-width: 100px;
+	box-shadow: 10px 5px 20px #222;
+	background-color: #bbb;
+	color: #000;
+	border: 0;
+}
+
+.logout-btn:hover {
+	cursor: pointer;
+	font-size: 1.5rem;
+	min-width: 120px;
+}
+
+.epic-error {
+	font-size: 10rem;
+	animation: lmao-dood-lol linear 0.2s infinite;
+}
+
+@keyframes lmao-dood-lol {
+	0% {
+		color: #f00;
+	}
+	33% {
+		color: #404;
+	}
+	66% {
+		color: #ff0;
+	}
+	100% {
+		color: #f00;
+	}
+}
+
+@keyframes bruh-momento {
+	0% {
+		background-color: rgb(69, 45, 164);
+	}
+	33% {
+		background-color: rgb(54, 125, 121);
+	}
+	66% {
+		background-color: rgb(6, 111, 71);
+	}
+	100% {
+		background-color: rgb(69, 45, 164);
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.sus-form {
+		width: 50%;
+	}
+}

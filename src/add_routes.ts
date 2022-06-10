@@ -1,8 +1,8 @@
 import { Application } from 'express';
 import * as sus from './handlers/sus';
-import * as login from './handlers/login';
+import * as main from './handlers/main';
 
-export function addRoutes(app: Application) {
+export function addRoutes(app: Application): void {
 	sus.addRoutes(app);
-	login.addRoutes(app);
+	main.addRoutes(app);
 }

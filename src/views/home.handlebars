@@ -1,0 +1,61 @@
+<script>
+	let urlInput;
+	let submitBtn;
+
+	$(window).on("load", () => {
+        docLoad();
+    });
+
+	function docLoad() {
+		urlInput = $('#url');
+		submitBtn = $('#submit');
+		const errorReport = $('#error-report');
+		const susLink = $('#sus-link');
+
+		if (!errorReport.html()) {
+			errorReport.attr('hidden', '');
+		}
+
+		if (!susLink.html()) {
+			susLink.attr('hidden', '');
+		}
+
+		if (!urlInput.val()) {
+			submitBtn.attr('disabled', '');
+		}
+	}
+
+	function onUrlChanged() {
+		if (!urlInput.val()) {
+			submitBtn.attr('disabled', '');
+		} else {
+			submitBtn.removeAttr('disabled');
+		}
+	}
+</script>
+<link rel='stylesheet' type='text/css' href='./views.css' />
+<div style='display: flex; flex-direction: column; height: 100vh; padding: 0; margin: 0;'>
+	<button onclick='window.location.href = "{{logout}}"' class='logout-btn'>
+		logout
+	</button>
+	<div class='header'>
+		<h1>make sus link</h1>
+	</div>
+	<div class='form-container dark-page'>
+		<form name='susify' method='POST' id='susify-form' class='dark-page sus-form' style='flex-grow: 1; margin-bottom: 0;'>
+			<h4 class='error-report' id='error-report'>{{error}}</h4>
+
+			<a id='sus-link' href='{{susLink}}'>
+				{{susLink}}
+			</a>
+
+			<input type='text' name='url' id='url' required placeholder='enter real url here pls' oninput='onUrlChanged()' value='{{url}}' />
+
+			<label>Sussiness</label>
+			<input type='range' name='susLevel' required min='1' max='10' value='{{susLevel}}' id='sussiness' step='1'>
+
+			<button type='submit' id='submit' name='susify'>make sus</button>
+			<div style='flex-grow: 1;'></div>
+		</form>
+	</div>
+</div>

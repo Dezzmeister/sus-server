@@ -1,10 +1,94 @@
 import { Application, Request, Response } from 'express';
-import { authMiddleware } from '../auth';
+import { jwtMiddleware } from '../auth';
+import { clientMiddleware, ClientRequest } from '../client';
 import { SusUrl } from '../entity/SusUrl';
 import { SusWord } from '../entity/SusWord';
 import { routes } from '../routes';
 import { getEntityManager } from '../services/database';
 import { generateUniqueSusId, withDomain } from '../services/sus-url';
+
+async function listSusWordsPost(req: ClientRequest, res: Response): Promise<void> {
+	try {
+		const em = getEntityManager();
+		const words = await em.getRepository(SusWord).findAll();
+
+		res.send({ words });
+	} catch (err) {
+		res.status(500).send({ error: JSON.stringify(err) });
+	}
+}
+
+async function addSusWordsPost(req: ClientRequest, res: Response): Promise<void> {
+	try {
+		const { words } = req.body;
+
+		if (!words || !words.length) {
+			res.status(400).send({ error: 'malformed word array' });
+			return;
+		}
+
+		const susWords = (words as string[]).map((w) => new SusWord(w));
+		const em = getEntityManager();
+		em.persistAndFlush(susWords);
+
+		res.send({ status: 'ok' });
+	} catch (err) {
+		res.status(500).send({ error: JSON.stringify(err) });
+	}
+}
+
+async function deleteSusWordsPost(req: ClientRequest, res: Response): Promise<void> {
+	try {
+		const { words } = req.body;
+
+		if (!words || !words.length) {
+			res.status(400).send({ error: 'malformed word array' });
+			return;
+		}
+
+		const susWords = (words as number[]).map((id) => {
+			const susWord = new SusWord('');
+			susWord.id = id;
+
+			return susWord;
+		});
+
+		const em = getEntityManager();
+		const repo = em.getRepository(SusWord);
+		await Promise.all(susWords.map((word) => repo.remove(word)));
+		await em.flush();
+
+		res.send({ status: 'ok' });
+	} catch (err) {
+		res.status(500).send({ error: JSON.stringify(err) });
+	}
+}
+
+async function modifySusWordsPost(req: ClientRequest, res: Response): Promise<void> {
+	try {
+		const { words } = req.body;
+
+		if (!words || !words.length) {
+			res.status(400).send({ error: 'malformed word array' });
+			return;
+		}
+
+		// TODO: Test with plain objects
+		const susWords = (words as { id: number; word: string }[]).map((word) => {
+			const susWord = new SusWord('');
+			susWord.id = word.id;
+
+			return susWord;
+		});
+
+		const em = getEntityManager();
+		await em.persistAndFlush(susWords);
+
+		res.send({ status: 'ok' });
+	} catch (err) {
+		res.status(500).send({ error: JSON.stringify(err) });
+	}
+}
 
 async function createSusUrlPost(req: Request, res: Response): Promise<void> {
 	const { url, numWords } = req.body;
@@ -130,8 +214,13 @@ export function addRoutes(app: Application): void {
 	app.get(routes.susUrl.full, susPageGet);
 	app.post(routes.api.url.createSusUrl, createSusUrlPost);
 
-	app.post(routes.api.word.crud, authMiddleware, susWordPost);
-	app.get(routes.api.word.crud, authMiddleware, susWordsGet);
-	app.put(routes.api.word.crud, authMiddleware, susWordPut);
-	app.delete(routes.api.word.crud, authMiddleware, susWordDelete);
+	app.post(routes.client.word.list, clientMiddleware, listSusWordsPost);
+	app.post(routes.client.word.add, clientMiddleware, addSusWordsPost);
+	app.post(routes.client.word.delete, clientMiddleware, deleteSusWordsPost);
+	app.post(routes.client.word.modify, clientMiddleware, modifySusWordsPost);
+
+	app.post(routes.api.word.crud, jwtMiddleware, susWordPost);
+	app.get(routes.api.word.crud, jwtMiddleware, susWordsGet);
+	app.put(routes.api.word.crud, jwtMiddleware, susWordPut);
+	app.delete(routes.api.word.crud, jwtMiddleware, susWordDelete);
 }
