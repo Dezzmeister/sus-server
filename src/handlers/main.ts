@@ -10,7 +10,7 @@ import { generateUniqueSusId, withDomain } from '../services/sus-url';
 
 async function mainPageGet(req: AuthRequest, res: Response): Promise<void> {
 	if (!req.user && !req.query['token']) {
-		res.redirect(`${config.loginProvider}?return_to=http://${config.server.hostname}:${config.server.port}`);
+		res.redirect(`${config.loginProvider}?return_to=${config.returnTo}`);
 		return;
 	}
 

@@ -4,6 +4,7 @@ dotenv.config();
 export const defaultConfig = {
 	env: 'dev',
 	loginProvider: 'http://localhost:3000/login',
+	returnTo: 'http://localhost:4010',
 	jwt: {
 		secret: '',
 		expiryTime: 0,
@@ -27,6 +28,7 @@ function asNumber(param: string | undefined): number | undefined {
 export const config: Config = {
 	env: process.env.ENV ?? defaultConfig.env,
 	loginProvider: process.env.LOGIN_PROVIDER ?? defaultConfig.loginProvider,
+	returnTo: process.env.RETURN_TO ?? defaultConfig.returnTo,
 	jwt: {
 		secret: process.env.JWT_SECRET ?? defaultConfig.jwt.secret,
 		expiryTime: asNumber(process.env.JWT_EXPIRY_TIME) ?? defaultConfig.jwt.expiryTime,
