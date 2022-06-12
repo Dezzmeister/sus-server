@@ -59,8 +59,8 @@ body {
 
 .sus-form > input[type='range'] {
 	width: 100%;
-	padding-top: 20px;
-	margin-top: 0;
+	padding-top: 0;
+	margin-top: 20px;
 }
 
 .sus-form > button {
