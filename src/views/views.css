@@ -57,6 +57,12 @@ body {
 	border-radius: 20px;
 }
 
+.sus-form > input[type='range'] {
+	width: 100%;
+	padding-top: 20px;
+	margin-top: 0;
+}
+
 .sus-form > button {
 	margin: 100px 10px 100px 10px;
 	padding: 20px 10px 20px 10px;
