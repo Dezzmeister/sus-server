@@ -29,7 +29,7 @@ async function addSusWordsPost(req: ClientRequest, res: Response): Promise<void>
 
 		const susWords = (words as string[]).map((w) => new SusWord(w));
 		const em = getEntityManager();
-		em.persistAndFlush(susWords);
+		await em.persistAndFlush(susWords);
 
 		res.send({ status: 'ok' });
 	} catch (err) {
@@ -46,16 +46,13 @@ async function deleteSusWordsPost(req: ClientRequest, res: Response): Promise<vo
 			return;
 		}
 
-		const susWords = (words as number[]).map((id) => {
-			const susWord = new SusWord('');
-			susWord.id = id;
-
-			return susWord;
-		});
-
 		const em = getEntityManager();
-		const repo = em.getRepository(SusWord);
-		await Promise.all(susWords.map((word) => repo.remove(word)));
+		await em
+			.createQueryBuilder(SusWord)
+			.delete()
+			.where({ id: { $in: words } })
+			.execute();
+
 		await em.flush();
 
 		res.send({ status: 'ok' });
@@ -68,21 +65,19 @@ async function modifySusWordsPost(req: ClientRequest, res: Response): Promise<vo
 	try {
 		const { words } = req.body;
 
-		if (!words || !words.length) {
+		if (!words || !Object.keys(words).length) {
 			res.status(400).send({ error: 'malformed word array' });
 			return;
 		}
 
-		// TODO: Test with plain objects
-		const susWords = (words as { id: number; word: string }[]).map((word) => {
-			const susWord = new SusWord('');
-			susWord.id = word.id;
-
-			return susWord;
-		});
-
 		const em = getEntityManager();
-		await em.persistAndFlush(susWords);
+		await Promise.all(
+			Object.keys(words).map((id) =>
+				em.createQueryBuilder(SusWord).update({ word: words[id] }).where({ id }).execute(),
+			),
+		);
+
+		await em.flush();
 
 		res.send({ status: 'ok' });
 	} catch (err) {
