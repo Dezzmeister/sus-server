@@ -1,4 +1,7 @@
 import { config } from './config';
+import http from 'http';
+import https from 'https';
+import fs from 'fs';
 import handlebars from 'express-handlebars';
 import express, { Application } from 'express';
 import { logger, loggingMiddleware } from './logging';
@@ -10,6 +13,24 @@ import cookieParser from 'cookie-parser';
 export const app: Application = express();
 
 const VIEWS_DIR = `${__dirname}/views`;
+
+function makeHttpsServer(app: Application) {
+	const key = fs.readFileSync(`${config.httpsKeyDir}/privkey.pem`, 'utf8');
+	const cert = fs.readFileSync(`${config.httpsKeyDir}/cert.pem`, 'utf8');
+	const ca = fs.readFileSync(`${config.httpsKeyDir}/chain.pem`, 'utf8');
+
+	const credentials = {
+		key,
+		cert,
+		ca,
+	};
+
+	return https.createServer(credentials, app);
+}
+
+function makeHttpServer(app: Application) {
+	return http.createServer(app);
+}
 
 async function main(): Promise<void> {
 	app.set('view engine', 'handlebars');
@@ -30,7 +51,9 @@ async function main(): Promise<void> {
 
 	addRoutes(app);
 
-	app.listen(config.server.port, () => {
+	const server = config.https ? makeHttpsServer(app) : makeHttpServer(app);
+
+	server.listen(config.server.port, () => {
 		logger.info(`Sus URL server listening on port ${config.server.port}`);
 	});
 }
