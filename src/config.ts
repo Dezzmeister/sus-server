@@ -6,6 +6,7 @@ export const defaultConfig = {
 	loginProvider: 'http://localhost:3000/login',
 	returnTo: 'http://localhost:4010',
 	https: false,
+	httpsPort: 0,
 	httpsKeyDir: '',
 	jwt: {
 		secret: '',
@@ -32,6 +33,7 @@ export const config: Config = {
 	loginProvider: process.env.LOGIN_PROVIDER ?? defaultConfig.loginProvider,
 	returnTo: process.env.RETURN_TO ?? defaultConfig.returnTo,
 	https: (process.env.HTTPS === 'true' ? true : false) ?? defaultConfig.https,
+	httpsPort: asNumber(process.env.HTTPS_PORT) ?? defaultConfig.httpsPort,
 	httpsKeyDir: process.env.HTTPS_KEY_DIR ?? defaultConfig.httpsKeyDir,
 	jwt: {
 		secret: process.env.JWT_SECRET ?? defaultConfig.jwt.secret,

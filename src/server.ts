@@ -51,11 +51,18 @@ async function main(): Promise<void> {
 
 	addRoutes(app);
 
-	const server = config.https ? makeHttpsServer(app) : makeHttpServer(app);
+	const httpServer = makeHttpServer(app);
 
-	server.listen(config.server.port, () => {
-		logger.info(`Sus URL server listening on port ${config.server.port}`);
+	httpServer.listen(config.server.port, () => {
+		logger.info(`(HTTP) Sus URL server listening on port ${config.server.port}`);
 	});
+
+	if (config.https) {
+		const httpsServer = makeHttpsServer(app);
+		httpsServer.listen(config.httpsPort, () => {
+			logger.info(`(HTTPS) Sus URL server listening on port ${config.httpsPort}`);
+		});
+	}
 }
 
 main();
